@@ -47,20 +47,18 @@ def analisar_resultados(resultados):
     
     contagem_lancamentos = np.bincount(resultados)[2:]
 
-    print("Média dos resultados:", media)
-    print("Lançamento máximo:", lancamento_maximo)
-    print("Lançamento mínimo:", lancamento_minimo)
+    print("Média dos resultados:", media) #imprime a média
+    print("Lançamento máximo:", lancamento_maximo) #imprime o lançamento max
+    print("Lançamento mínimo:", lancamento_minimo) #imprime o lançamento min
     print("Número de vezes que cada possível lançamento ocorreu:")
     for i, contagem in enumerate(contagem_lancamentos, start=2):
-        print(f"{i}: {contagem} vezes")
+        print(f"{i}: {contagem} vezes")  #Utilizado 'for' com 'enumerate' para percorrer os elementos de contagem_lancamentos. O argumento start=2 define o valor inicial do índice como 2, porque as somas dos dados começam em 2.
 
     return contagem_lancamentos
-
 """
 numpy.bincount
 Conta o número de ocorrências de cada valor na matriz de inteiros não negativos. O número de caixas (de tamanho 1) é uma unidade maior que o maior valor em x. Se min...
 """
-
 def teste_hipotese(resultados):
     probabilidade_esperada = 1/6  # Probabilidade de cada resultado em um jogo justo
 
@@ -79,6 +77,7 @@ def executar_simulacao_e_analise(numero_jogos):
     teste_hipotese(resultados)
 
 #Imprime os resultados para a analise
+numero_jogos = 1000
 resultados = simular_n_jogos(numero_jogos)
 contagem_lancamentos = analisar_resultados(resultados)
 teste_hipotese(resultados)
